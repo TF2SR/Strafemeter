@@ -1,0 +1,65 @@
+{
+    "Name": "dyedquartz.strafemeter",
+    "Description": "Strafe Meter",
+    "Version": "1.0.0",
+    "LoadPriority": 0,
+    "ConVars": [
+		//// Speedometer
+		//{
+		//	"Name": "dq_speedometer_enable",
+		//	"DefaultValue": "0",
+		//	"Flags": 16777216
+		//},
+		//{
+		//	"Name": "dq_speedometer_unit",
+		//	"DefaultValue": "0",
+		//	"Flags": 16777216
+		//},
+		//{
+		//	"Name": "dq_speedometer_axismode",
+		//	"DefaultValue": "0",
+		//	"Flags": 16777216
+		//},
+
+		//// Speedometer Customization
+		//{
+		//	"Name": "dq_speedometer_fast",
+		//	"DefaultValue": "1000.0",
+		//	"Flags": 16777216
+		//},
+		{
+			"Name": "dq_strafemeter_position",
+			"DefaultValue": "0.6 0.56 0.0",
+			"Flags": 16777216
+		},
+		//{
+		//	"Name": "dq_speedometer_color_slow",
+		//	"DefaultValue": "1.0 1.0 1.0",
+		//	"Flags": 16777216
+		//},
+		//{
+		//	"Name": "dq_speedometer_color_fast",
+		//	"DefaultValue": "0.62 0.0 1.0",
+		//	"Flags": 16777216
+		//},
+		{
+			"Name": "dq_strafemeter_alpha",
+			"DefaultValue": "1.0",
+			"Flags": 16777216
+		},
+
+],
+    "Scripts": [
+		{
+			"Path": "strafemeter.nut",
+			"RunOn": "CLIENT || UI",
+			"ClientCallback": {
+				"After": "dq_strafemeterPrecache"
+			},
+			//"UICallback": {
+			//	"Before": "dq_speedometerSettings"
+			//}
+		}
+],
+    "Localisation": []
+}
