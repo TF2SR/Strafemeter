@@ -104,11 +104,14 @@ void function dq_createStrafemeter() {
     RuiSetFloat3(strafemeterIndicator, "msgColor", <1.0, 1.0, 1.0>)
 
     RuiSetString(strafemeterIndicator, "msgText", "|")
+    RuiSetString(strafemeter, "msgText", "======^======\n\n======^======\n")
+
 
 }
 
 void function dq_strafemeterUpdate() {
-    array<float> optimalFracBuffer = [0.0, 0.0, 0.0, 0.0, 0.0]
+    int bufferLength = 0 + GetConVarInt("dq_strafemeter_buffer_length")
+    array<float> optimalFracBuffer = []
     entity player
     vector strafemeterEyeVector
     vector strafemeterVelocity
@@ -117,6 +120,11 @@ void function dq_strafemeterUpdate() {
 
     float rad2deg = 180.0 / PI
     float deg2rad = PI / 180.0
+
+    for (int i = 0; i < bufferLength; ++i) {
+        optimalFracBuffer.append(0.0)
+    }
+
     while (true) {
         WaitFrame()
 
@@ -153,10 +161,6 @@ void function dq_strafemeterUpdate() {
         addToBuffer(optimalFracBuffer, optimalFrac)
         optimalFrac = getAverage(optimalFracBuffer)
         
-        RuiSetString(strafemeter, "msgText", "======^======\n\n======^======\n"
-        // debug info, remove eventually?
-        + deltaAngle.tostring() + "\n" + optimalDelta.tostring() + "\n" + optimalFrac.tostring())
-
         // setting position of position mter
         RuiSetFloat2(strafemeterIndicator, "msgPos", GetConVarFloat3("dq_strafemeter_position") + <getMeterPosition(optimalFrac), 0.035, 0.0>)
     }

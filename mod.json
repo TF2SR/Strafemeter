@@ -1,7 +1,7 @@
 {
     "Name": "dyedquartz.strafemeter",
     "Description": "Strafe Meter",
-    "Version": "1.0.0",
+    "Version": "1.1.0",
     "LoadPriority": 0,
     "ConVars": [
 		//// Speedometer
@@ -47,6 +47,11 @@
 			"DefaultValue": "1.0",
 			"Flags": 16777216
 		},
+        {
+            "Name": "dq_strafemeter_buffer_length",
+            "DefaultValue": "10",
+			"Flags": 16777216
+        }
 
 ],
     "Scripts": [
